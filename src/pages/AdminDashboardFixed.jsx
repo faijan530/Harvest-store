@@ -235,11 +235,11 @@ const AdminDashboard = () => {
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
-                      <input type="text" defaultValue="+91 98765 43210" className="w-full px-3 py-2 border border-gray-300 rounded-lg" />
+                      <input type="text" defaultValue="+91 6201640686" className="w-full px-3 py-2 border border-gray-300 rounded-lg" />
                     </div>
                     <div className="md:col-span-2">
                       <label className="block text-sm font-medium text-gray-700 mb-2">Address</label>
-                      <input type="text" defaultValue="NH-75 Highway, Kundi Shankha, Madhya Pradesh" className="w-full px-3 py-2 border border-gray-300 rounded-lg" />
+                      <input type="text" defaultValue="Garhwa - Rajhara Rd, Jharkhand 822124" className="w-full px-3 py-2 border border-gray-300 rounded-lg" />
                     </div>
                   </div>
                 </div>

@@ -33,42 +33,42 @@ const Home = () => {
       name: 'Tomato',
       price: '₹20/kg',
       image: tomatoImage,
-      whatsappLink: 'https://wa.me/919876543210?text=I%20want%20to%20order%20Tomato%20-%20₹20/kg'
+      whatsappLink: 'https://wa.me/916201640686?text=I%20want%20to%20order%20Tomato%20-%20₹20/kg'
     },
     {
       id: 2,
       name: 'Potato',
       price: '₹18/kg',
       image: potatoImage,
-      whatsappLink: 'https://wa.me/919876543210?text=I%20want%20to%20order%20Potato%20-%20₹18/kg'
+      whatsappLink: 'https://wa.me/916201640686?text=I%20want%20to%20order%20Potato%20-%20₹18/kg'
     },
     {
       id: 3,
       name: 'Onion',
       price: '₹25/kg',
       image: onionImage,
-      whatsappLink: 'https://wa.me/919876543210?text=I%20want%20to%20order%20Onion%20-%20₹25/kg'
+      whatsappLink: 'https://wa.me/916201640686?text=I%20want%20to%20order%20Onion%20-%20₹25/kg'
     },
     {
       id: 4,
       name: 'Cabbage',
       price: '₹15/kg',
       image: cabbageImage,
-      whatsappLink: 'https://wa.me/919876543210?text=I%20want%20to%20order%20Cabbage%20-%20₹15/kg'
+      whatsappLink: 'https://wa.me/916201640686?text=I%20want%20to%20order%20Cabbage%20-%20₹15/kg'
     },
     {
       id: 5,
       name: 'Brinjal',
       price: '₹30/kg',
       image: brinjalImage,
-      whatsappLink: 'https://wa.me/919876543210?text=I%20want%20to%20order%20Brinjal%20-%20₹30/kg'
+      whatsappLink: 'https://wa.me/916201640686?text=I%20want%20to%20order%20Brinjal%20-%20₹30/kg'
     },
     {
       id: 6,
       name: 'Carrot',
       price: '₹35/kg',
       image: carrotImage,
-      whatsappLink: 'https://wa.me/919876543210?text=I%20want%20to%20order%20Carrot%20-%20₹35/kg'
+      whatsappLink: 'https://wa.me/916201640686?text=I%20want%20to%20order%20Carrot%20-%20₹35/kg'
     }
   ];
 
@@ -79,42 +79,42 @@ const Home = () => {
       name: 'Apple',
       price: '₹120/kg',
       image: appleImage,
-      whatsappLink: 'https://wa.me/919876543210?text=I%20want%20to%20order%20Apple%20-%20₹120/kg'
+      whatsappLink: 'https://wa.me/916201640686?text=I%20want%20to%20order%20Apple%20-%20₹120/kg'
     },
     {
       id: 2,
       name: 'Banana',
       price: '₹40/dozen',
       image: bananaImage,
-      whatsappLink: 'https://wa.me/919876543210?text=I%20want%20to%20order%20Banana%20-%20₹40/dozen'
+      whatsappLink: 'https://wa.me/916201640686?text=I%20want%20to%20order%20Banana%20-%20₹40/dozen'
     },
     {
       id: 3,
       name: 'Orange',
       price: '₹60/kg',
       image: orangeImage,
-      whatsappLink: 'https://wa.me/919876543210?text=I%20want%20to%20order%20Orange%20-%20₹60/kg'
+      whatsappLink: 'https://wa.me/916201640686?text=I%20want%20to%20order%20Orange%20-%20₹60/kg'
     },
     {
       id: 4,
       name: 'Papaya',
       price: '₹45/kg',
       image: papayaImage,
-      whatsappLink: 'https://wa.me/919876543210?text=I%20want%20to%20order%20Papaya%20-%20₹45/kg'
+      whatsappLink: 'https://wa.me/916201640686?text=I%20want%20to%20order%20Papaya%20-%20₹45/kg'
     },
     {
       id: 5,
       name: 'Mango',
       price: '₹80/kg',
       image: mangoImage,
-      whatsappLink: 'https://wa.me/919876543210?text=I%20want%20to%20order%20Mango%20-%20₹80/kg'
+      whatsappLink: 'https://wa.me/916201640686?text=I%20want%20to%20order%20Mango%20-%20₹80/kg'
     },
     {
       id: 6,
       name: 'Grapes',
       price: '₹100/kg',
       image: grapesImage,
-      whatsappLink: 'https://wa.me/919876543210?text=I%20want%20to%20order%20Grapes%20-%20₹100/kg'
+      whatsappLink: 'https://wa.me/916201640686?text=I%20want%20to%20order%20Grapes%20-%20₹100/kg'
     }
   ];
 
@@ -159,7 +159,7 @@ const Home = () => {
     {
       id: 2,
       question: 'Where is your shop located?',
-      answer: 'We are located at NH-75 Highway, Kundi Shankha, Madhya Pradesh. Easy to find and accessible!'
+      answer: 'We are located at Garhwa - Rajhara Rd, Jharkhand 822124. Easy to find and accessible!'
     },
     {
       id: 3,
@@ -387,17 +387,17 @@ const Home = () => {
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
               <i className="fas fa-map-marker-alt text-4xl mb-4 text-yellow-300"></i>
               <h3 className="text-2xl font-bold mb-2">Location</h3>
-              <p className="text-lg">NH-75 Highway, Kundi Shankha<br />Madhya Pradesh</p>
+              <p className="text-lg">Kundi Rehla, Palamu<br />Jharkhand 822124</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
               <i className="fas fa-phone text-4xl mb-4 text-yellow-300"></i>
               <h3 className="text-2xl font-bold mb-2">Phone</h3>
-              <p className="text-lg">+91 98765 43210</p>
+              <p className="text-lg">+91 6201640686</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
               <i className="fab fa-whatsapp text-4xl mb-4 text-yellow-300"></i>
               <h3 className="text-2xl font-bold mb-2">WhatsApp</h3>
-              <a href="https://wa.me/919876543210" className="text-lg hover:text-yellow-300 transition-colors">Order on WhatsApp</a>
+              <a href="https://wa.me/916201640686" className="text-lg hover:text-yellow-300 transition-colors">Order on WhatsApp</a>
             </div>
           </div>
         </div>
@@ -412,7 +412,7 @@ const Home = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div className="card-enhanced rounded-xl overflow-hidden shadow-lg">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.8974!2d75.8!3d22.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sNH-75%20Highway%2C%20Kundi%20Shankha%2C%20Madhya%20Pradesh!5e0!3m2!1sen!2sin!4v1234567890"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.8974!2d83.9305209!3d24.2140513!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398c12aa80613f05:0x6b2ca4f274492e41!2s6W7H%2BWC%2C%20Sankha%2C%20Jharkhand%20815313!5e0!3m2!1sen!2sin!4v1234567890"
                 width="100%" 
                 height="300" 
                 style={{ border: '0' }} 
@@ -427,18 +427,18 @@ const Home = () => {
               <div className="space-y-3">
                 <p className="flex items-center text-lg">
                   <i className="fas fa-map-marker-alt mr-3 text-fresh-green"></i> 
-                  NH-75 Highway, Kundi Shankha, Madhya Pradesh
+                  6W7H+WC, Sankha, Jharkhand 815313
                 </p>
                 <p className="flex items-center text-lg">
                   <i className="fas fa-phone mr-3 text-fresh-green"></i> 
-                  +91 98765 43210
+                  +91 6201640686
                 </p>
                 <p className="flex items-center text-lg">
                   <i className="fas fa-clock mr-3 text-fresh-green"></i> 
                   Open 24/7
                 </p>
               </div>
-              <a href="https://maps.google.com/?q=NH-75+Highway,+Kundi+Shankha,+Madhya+Pradesh" 
+              <a href="https://maps.google.com/?q=6W7H%2BWC%2C%20Sankha%2C%20Jharkhand%20815313" 
                  className="btn-enhanced bg-fresh-green hover:bg-green-800 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg" target="_blank" rel="noopener noreferrer">
                 <i className="fas fa-map-marked-alt mr-2"></i> View Location
               </a>
@@ -459,14 +459,14 @@ const Home = () => {
                 <i className="fas fa-phone text-4xl text-fresh-green mb-3"></i>
                 <div>
                   <h3 className="text-lg font-semibold mb-1">Call Us</h3>
-                  <p className="text-gray-600 text-lg">+91 98765 43210</p>
+                  <p className="text-gray-600 text-lg">+91 6201640686</p>
                 </div>
               </div>
               <div className="card-enhanced p-6 text-center hover-lift">
                 <i className="fab fa-whatsapp text-4xl text-whatsapp mb-3"></i>
                 <div>
                   <h3 className="text-lg font-semibold mb-1">WhatsApp</h3>
-                  <p className="text-gray-600 text-lg">+91 98765 43210</p>
+                  <p className="text-gray-600 text-lg">+91 6201640686</p>
                 </div>
               </div>
               <div className="card-enhanced p-6 text-center hover-lift">
@@ -478,10 +478,10 @@ const Home = () => {
               </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-              <a href="tel:+919876543210" className="btn-enhanced bg-fresh-green hover:bg-green-800 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">
+              <a href="tel:+916201640686" className="btn-enhanced bg-fresh-green hover:bg-green-800 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">
                 <i className="fas fa-phone mr-2"></i> Call Now
               </a>
-              <a href="https://wa.me/919876543210" className="btn-enhanced bg-whatsapp hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/916201640686" className="btn-enhanced bg-whatsapp hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg" target="_blank" rel="noopener noreferrer">
                 <i className="fab fa-whatsapp mr-2"></i> Message on WhatsApp
               </a>
             </div>

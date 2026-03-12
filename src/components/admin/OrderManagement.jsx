@@ -9,7 +9,7 @@ const OrderManagement = () => {
       total: '₹180',
       status: 'pending',
       time: '10:30 AM',
-      phone: '+91 98765 43210'
+      phone: '+916201640686'
     },
     {
       id: 'ORD002',
