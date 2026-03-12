@@ -4,13 +4,13 @@
   "description": "24*7 Fresh Store - React.js Application",
   "type": "module",
   "scripts": {
-    "dev": "node ./node_modules/vite/bin/vite.js",
-    "build": "node ./node_modules/vite/bin/vite.js build",
-    "preview": "node ./node_modules/vite/bin/vite.js preview",
+    "dev": "npm exec vite",
+    "build": "npm exec vite build",
+    "preview": "npm exec vite preview",
     "test": "vitest",
     "lint": "eslint . --ext js,jsx,ts --report-unused-disable-directives",
     "format": "prettier --write .",
-    "serve": "node ./node_modules/vite/bin/vite.js preview"
+    "serve": "npm exec vite preview"
   },
   "dependencies": {
     "framer-motion": "^10.16.4",
