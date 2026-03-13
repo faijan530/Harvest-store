@@ -4,13 +4,13 @@
   "description": "24*7 Fresh Store - React.js Application",
   "type": "module",
   "scripts": {
-    "dev": "npx vite",
-    "build": "npx vite build",
-    "preview": "npx vite preview",
+    "dev": "./node_modules/.bin/vite",
+    "build": "./node_modules/.bin/vite build",
+    "preview": "./node_modules/.bin/vite preview",
     "test": "vitest",
     "lint": "eslint . --ext js,jsx,ts --report-unused-disable-directives",
     "format": "prettier --write .",
-    "serve": "npx vite preview",
+    "serve": "./node_modules/.bin/vite preview",
     "convert-beverages": "node convert-beverages-webp.js",
     "add-sample-beverages": "node add-sample-beverages.js"
   },
@@ -23,15 +23,15 @@
     "react-icons": "^5.6.0",
     "react-router-dom": "^6.8.0",
     "sharp": "^0.33.0",
-    "tailwindcss": "^3.3.0"
+    "tailwindcss": "^3.3.0",
+    "vite": "^4.5.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react": "^5.1.4",
     "autoprefixer": "^10.4.27",
-    "typescript": "^4.9.5",
-    "vite": "^4.5.0"
+    "typescript": "^4.9.5"
   },
   "engines": {
     "node": ">=18.0.0"
