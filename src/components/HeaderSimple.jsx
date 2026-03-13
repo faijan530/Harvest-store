@@ -19,7 +19,7 @@ const HeaderSimple = () => {
             <Link to="/fruits" className="hover:text-yellow-300 transition">Fruits</Link>
             <Link to="/today-prices" className="hover:text-yellow-300 transition">Prices</Link>
             <Link to="/contact" className="hover:text-yellow-300 transition">Contact</Link>
-            <Link to="/admin/login" className="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-lg transition">Admin</Link>
+            {/* Admin link removed for security - access only via direct URL */}
           </nav>
         </div>
       </div>

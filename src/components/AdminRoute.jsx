@@ -1,23 +1,26 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 
 const AdminRoute = ({ children }) => {
-  // Check both localStorage and sessionStorage for admin token
-  const token = localStorage.getItem('adminToken') || sessionStorage.getItem('adminToken');
-  
-  // Debug logging
-  console.log('AdminRoute - Token check:', { 
-    localStorage: localStorage.getItem('adminToken'),
-    sessionStorage: sessionStorage.getItem('adminToken'),
-    token: token 
-  });
-  
-  if (!token) {
-    console.log('AdminRoute - Redirecting to login');
+  const { isAuthenticated, loading } = useAuth();
+
+  // Show loading spinner while checking authentication
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="text-center">
+          <div className="w-12 h-12 border-4 border-purple-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!isAuthenticated) {
     return <Navigate to="/admin/login" replace />;
   }
-  
-  console.log('AdminRoute - Access granted, rendering children');
+
   return children;
 };
 

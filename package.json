@@ -10,15 +10,19 @@
     "test": "vitest",
     "lint": "eslint . --ext js,jsx,ts --report-unused-disable-directives",
     "format": "prettier --write .",
-    "serve": "npm exec vite preview"
+    "serve": "npm exec vite preview",
+    "convert-beverages": "node convert-beverages-webp.js",
+    "add-sample-beverages": "node add-sample-beverages.js"
   },
   "dependencies": {
+    "firebase": "^12.10.0",
     "framer-motion": "^10.16.4",
     "lucide-react": "^0.263.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.6.0",
     "react-router-dom": "^6.8.0",
+    "sharp": "^0.33.0",
     "tailwindcss": "^3.3.0"
   },
   "devDependencies": {

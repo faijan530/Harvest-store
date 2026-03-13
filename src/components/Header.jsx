@@ -98,6 +98,19 @@ const Header = () => {
               </li>
               <li>
                 <Link 
+                  to="/beverages" 
+                  className={`relative text-white hover:text-yellow-300 font-bold transition-all duration-500 px-4 py-2 rounded-xl hover:bg-white/10 hover:backdrop-blur-sm hover:shadow-lg ${
+                    isActive('/beverages') ? 'text-yellow-300 bg-white/10 backdrop-blur-sm shadow-lg' : ''
+                  }`}
+                >
+                  Beverages
+                  {isActive('/beverages') && (
+                    <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-yellow-300 rounded-full"></span>
+                  )}
+                </Link>
+              </li>
+              <li>
+                <Link 
                   to="/today-prices" 
                   className={`relative text-white hover:text-yellow-300 font-bold transition-all duration-500 px-4 py-2 rounded-xl hover:bg-white/10 hover:backdrop-blur-sm hover:shadow-lg ${
                     isActive('/today-prices') ? 'text-yellow-300 bg-white/10 backdrop-blur-sm shadow-lg' : ''
@@ -172,6 +185,15 @@ const Header = () => {
                   onClick={closeMenu}
                 >
                   Fruits
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/beverages"
+                  className="block px-4 py-3 text-white hover:text-yellow-300 font-bold transition-all duration-200"
+                  onClick={closeMenu}
+                >
+                  Beverages
                 </Link>
               </li>
               <li>

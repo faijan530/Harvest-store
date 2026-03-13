@@ -222,8 +222,8 @@ const Contact = () => {
               {submitStatus && (
                 <div className={`mb-6 p-4 rounded-lg ${
                   submitStatus.type === 'success'
-                    ? 'bg-green-50 border border-green-200 text-green-800'
-                    : 'bg-red-50 border border-red-200 text-red-800'
+                    ? 'bg-green-50 text-green-800'
+                    : 'bg-red-50 text-red-800'
                 }`}>
                   {submitStatus.message}
                 </div>
@@ -241,7 +241,7 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent ${
+                      className={`w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent ${
                         errors.name ? 'border-red-500' : 'border-gray-300'
                       }`}
                       placeholder="Your Name"
@@ -258,7 +258,7 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent ${
+                      className={`w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent ${
                         errors.email ? 'border-red-500' : 'border-gray-300'
                       }`}
                       placeholder="your@email.com"
@@ -274,7 +274,7 @@ const Contact = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    className="w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                     placeholder="+91 6201640686"
                   />
                 </div>
@@ -289,9 +289,7 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleInputChange}
                     required
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent ${
-                      errors.subject ? 'border-red-500' : 'border-gray-300'
-                    }`}
+                    className={`w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent`}
                     placeholder="How can we help you?"
                   />
                   {errors.subject && <p className="text-red-500 text-sm mt-1">{errors.subject}</p>}
@@ -307,9 +305,7 @@ const Contact = () => {
                     onChange={handleInputChange}
                     required
                     rows={5}
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent ${
-                      errors.message ? 'border-red-500' : 'border-gray-300'
-                    }`}
+                    className={`w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent`}
                     placeholder="Tell us more about your inquiry..."
                   ></textarea>
                   {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}

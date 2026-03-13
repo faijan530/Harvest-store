@@ -1,47 +1,61 @@
 import React, { useState, useEffect } from 'react';
+import { getProducts } from '../services';
+import ReviewSection from '../components/ReviewSection';
+import FloatingReviewButton from '../components/FloatingReviewButton';
+import WhatsAppOrderTracker from '../components/WhatsAppOrderTracker';
 
 const Prices = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeTab, setActiveTab] = useState('vegetables');
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setIsVisible(true);
+    loadProducts();
   }, []);
 
-  const vegetables = [
-    { name: 'Tomato', price: '₹20', unit: '/kg', whatsappLink: 'https://wa.me/919876543210?text=I%20want%20to%20order%20Tomato%20-%20₹20/kg' },
-    { name: 'Potato', price: '₹18', unit: '/kg', whatsappLink: 'https://wa.me/919876543210?text=I%20want%20to%20order%20Potato%20-%20₹18/kg' },
-    { name: 'Onion', price: '₹22', unit: '/kg', whatsappLink: 'https://wa.me/919876543210?text=I%20want%20to%20order%20Onion%20-%20₹22/kg' },
-    { name: 'Carrot', price: '₹25', unit: '/kg', whatsappLink: 'https://wa.me/919876543210?text=I%20want%20to%20order%20Carrot%20-%20₹25/kg' },
-    { name: 'Cucumber', price: '₹15', unit: '/kg', whatsappLink: 'https://wa.me/919876543210?text=I%20want%20to%20order%20Cucumber%20-%20₹15/kg' },
-    { name: 'Spinach', price: '₹12', unit: '/bunch', whatsappLink: 'https://wa.me/919876543210?text=I%20want%20to%20order%20Spinach%20-%20₹12/bunch' },
-    { name: 'Cauliflower', price: '₹30', unit: '/pc', whatsappLink: 'https://wa.me/919876543210?text=I%20want%20to%20order%20Cauliflower%20-%20₹30/pc' },
-    { name: 'Cabbage', price: '₹20', unit: '/pc', whatsappLink: 'https://wa.me/919876543210?text=I%20want%20to%20order%20Cabbage%20-%20₹20/pc' },
-    { name: 'Brinjal', price: '₹28', unit: '/kg', whatsappLink: 'https://wa.me/919876543210?text=I%20want%20to%20order%20Brinjal%20-%20₹28/kg' },
-    { name: 'Green Peas', price: '₹45', unit: '/kg', whatsappLink: 'https://wa.me/919876543210?text=I%20want%20to%20order%20Green%20Peas%20-%20₹45/kg' }
-  ];
+  const loadProducts = async () => {
+    try {
+      setLoading(true);
+      const productsData = await getProducts();
+      setProducts(productsData || []);
+    } catch (error) {
+      console.error('Error loading products:', error);
+      setProducts([]);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-  const fruits = [
-    { name: 'Apple', price: '₹120', unit: '/kg', whatsappLink: 'https://wa.me/919876543210?text=I%20want%20to%20order%20Apple%20-%20₹120/kg' },
-    { name: 'Banana', price: '₹40', unit: '/dozen', whatsappLink: 'https://wa.me/919876543210?text=I%20want%20to%20order%20Banana%20-%20₹40/dozen' },
-    { name: 'Orange', price: '₹60', unit: '/kg', whatsappLink: 'https://wa.me/919876543210?text=I%20want%20to%20order%20Orange%20-%20₹60/kg' },
-    { name: 'Grapes', price: '₹100', unit: '/kg', whatsappLink: 'https://wa.me/919876543210?text=I%20want%20to%20order%20Grapes%20-%20₹100/kg' },
-    { name: 'Mango', price: '₹80', unit: '/kg', whatsappLink: 'https://wa.me/919876543210?text=I%20want%20to%20order%20Mango%20-%20₹80/kg' },
-    { name: 'Pineapple', price: '₹45', unit: '/pc', whatsappLink: 'https://wa.me/919876543210?text=I%20want%20to%20order%20Pineapple%20-%20₹45/pc' },
-    { name: 'Pomegranate', price: '₹150', unit: '/kg', whatsappLink: 'https://wa.me/919876543210?text=I%20want%20to%20order%20Pomegranate%20-%20₹150/kg' },
-    { name: 'Guava', price: '₹50', unit: '/kg', whatsappLink: 'https://wa.me/919876543210?text=I%20want%20to%20order%20Guava%20-%20₹50/kg' },
-    { name: 'Papaya', price: '₹35', unit: '/pc', whatsappLink: 'https://wa.me/919876543210?text=I%20want%20to%20order%20Papaya%20-%20₹35/pc' },
-    { name: 'Watermelon', price: '₹25', unit: '/pc', whatsappLink: 'https://wa.me/919876543210?text=I%20want%20to%20order%20Watermelon%20-%20₹25/pc' }
-  ];
+  // Filter products by category
+  const vegetables = products.filter(product => product.category === 'vegetable').map(product => ({
+    name: product.name,
+    price: `₹${product.price}`,
+    unit: `/${product.unit || 'kg'}`,
+    whatsappLink: `https://wa.me/916201640686?text=I%20want%20to%20order%20${product.name}%20-%20₹${product.price}/${product.unit || 'kg'}`
+  }));
 
-  const allProducts = [
-    { name: 'Tomato', category: 'Vegetable', price: '₹20', unit: '/kg', whatsappLink: 'https://wa.me/919876543210?text=I%20want%20to%20order%20Tomato%20-%20₹20/kg' },
-    { name: 'Apple', category: 'Fruit', price: '₹120', unit: '/kg', whatsappLink: 'https://wa.me/919876543210?text=I%20want%20to%20order%20Apple%20-%20₹120/kg' },
-    { name: 'Potato', category: 'Vegetable', price: '₹18', unit: '/kg', whatsappLink: 'https://wa.me/919876543210?text=I%20want%20to%20order%20Potato%20-%20₹18/kg' },
-    { name: 'Banana', category: 'Fruit', price: '₹40', unit: '/dozen', whatsappLink: 'https://wa.me/919876543210?text=I%20want%20to%20order%20Banana%20-%20₹40/dozen' },
-    { name: 'Onion', category: 'Vegetable', price: '₹22', unit: '/kg', whatsappLink: 'https://wa.me/919876543210?text=I%20want%20to%20order%20Onion%20-%20₹22/kg' },
-    { name: 'Orange', category: 'Fruit', price: '₹60', unit: '/kg', whatsappLink: 'https://wa.me/919876543210?text=I%20want%20to%20order%20Orange%20-%20₹60/kg' }
-  ];
+  const fruits = products.filter(product => product.category === 'fruit').map(product => ({
+    name: product.name,
+    price: `₹${product.price}`,
+    unit: `/${product.unit || 'kg'}`,
+    whatsappLink: `https://wa.me/916201640686?text=I%20want%20to%20order%20${product.name}%20-%20₹${product.price}/${product.unit || 'kg'}`
+  }));
+
+  const beverages = products.filter(product => product.category === 'beverage').map(product => ({
+    name: product.name,
+    price: `₹${product.price}`,
+    unit: `/${product.unit || 'ml'}`,
+    whatsappLink: `https://wa.me/916201640686?text=I%20want%20to%20order%20${product.name}%20-%20₹${product.price}/${product.unit || 'ml'}`
+  }));
+
+  const allProducts = products.map(product => ({
+    name: product.name,
+    price: `₹${product.price}`,
+    unit: `/${product.unit || 'kg'}`,
+    whatsappLink: `https://wa.me/916201640686?text=I%20want%20to%20order%20${product.name}%20-%20₹${product.price}/${product.unit || 'kg'}`
+  }));
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
@@ -67,14 +81,16 @@ const Prices = () => {
               <td className="px-6 py-4 font-bold text-fresh-green">{item.price}</td>
               <td className="px-6 py-4">{item.unit}</td>
               <td className="px-6 py-4">
-                <a 
-                  href={item.whatsappLink} 
-                  className="bg-whatsapp hover:bg-green-600 text-white px-3 py-1 rounded-lg text-sm font-semibold transition-all" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                >
-                  <i className="fab fa-whatsapp mr-1"></i> Order
-                </a>
+                <WhatsAppOrderTracker product={item.name}>
+                  <a 
+                    href={item.whatsappLink} 
+                    className="bg-whatsapp hover:bg-green-600 text-white px-3 py-1 rounded-lg text-sm font-semibold transition-all" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
+                    <i className="fab fa-whatsapp mr-1"></i> Order
+                  </a>
+                </WhatsAppOrderTracker>
               </td>
             </tr>
           ))}
@@ -104,7 +120,16 @@ const Prices = () => {
         </div>
       </section>
 
+      {/* Loading State */}
+      {loading && (
+        <div className="flex justify-center items-center py-16">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-fresh-green"></div>
+          <p className="ml-4 text-gray-600">Loading latest prices...</p>
+        </div>
+      )}
+
       {/* Prices Table Section */}
+      {!loading && (
       <section className="prices-section bg-white py-16">
         <div className="max-w-7xl mx-auto px-5">
           <div className="flex justify-center gap-4 mb-8">
@@ -112,7 +137,7 @@ const Prices = () => {
               className={`px-6 py-3 rounded-lg font-semibold transition-all ${
                 activeTab === 'vegetables' 
                   ? 'bg-fresh-green text-white border-fresh-green' 
-                  : 'bg-gray-100 border-2 border-gray-200 hover:bg-fresh-green hover:text-white hover:border-fresh-green'
+                  : 'bg-gray-100 hover:bg-fresh-green hover:text-white'
               }`}
               onClick={() => handleTabChange('vegetables')}
             >
@@ -122,7 +147,7 @@ const Prices = () => {
               className={`px-6 py-3 rounded-lg font-semibold transition-all ${
                 activeTab === 'fruits' 
                   ? 'bg-fresh-green text-white border-fresh-green' 
-                  : 'bg-gray-100 border-2 border-gray-200 hover:bg-fresh-green hover:text-white hover:border-fresh-green'
+                  : 'bg-gray-100 hover:bg-fresh-green hover:text-white'
               }`}
               onClick={() => handleTabChange('fruits')}
             >
@@ -130,9 +155,19 @@ const Prices = () => {
             </button>
             <button 
               className={`px-6 py-3 rounded-lg font-semibold transition-all ${
+                activeTab === 'beverages' 
+                  ? 'bg-fresh-green text-white border-fresh-green' 
+                  : 'bg-gray-100 hover:bg-fresh-green hover:text-white'
+              }`}
+              onClick={() => handleTabChange('beverages')}
+            >
+              Beverages
+            </button>
+            <button 
+              className={`px-6 py-3 rounded-lg font-semibold transition-all ${
                 activeTab === 'all' 
                   ? 'bg-fresh-green text-white border-fresh-green' 
-                  : 'bg-gray-100 border-2 border-gray-200 hover:bg-fresh-green hover:text-white hover:border-fresh-green'
+                  : 'bg-gray-100 hover:bg-fresh-green hover:text-white'
               }`}
               onClick={() => handleTabChange('all')}
             >
@@ -146,25 +181,39 @@ const Prices = () => {
           }`}>
             {activeTab === 'vegetables' && renderTable(vegetables)}
             {activeTab === 'fruits' && renderTable(fruits)}
+            {activeTab === 'beverages' && renderTable(beverages)}
             {activeTab === 'all' && renderTable(allProducts, true)}
           </div>
         </div>
       </section>
+      )}
+
+      {/* Customer Reviews Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-5">
+          <ReviewSection />
+        </div>
+      </section>
+
+      {/* Floating Review Button */}
+      <FloatingReviewButton />
 
       {/* Quick Order Section */}
-      <section className="quick-order bg-gray-50 py-16 text-center">
+      <section className="py-16 bg-fresh-green text-center">
         <div className="max-w-7xl mx-auto px-5">
           <div className="quick-order-content">
             <h2 className="text-3xl font-bold mb-4 text-fresh-green">Bulk Order?</h2>
             <p className="text-lg mb-8 text-gray-600">Planning to order in bulk? Get special discounts!</p>
-            <a 
-              href="https://wa.me/919876543210?text=Hi%20I%20want%20to%20place%20a%20bulk%20order" 
-              className="bg-fresh-green hover:bg-green-800 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:-translate-y-1" 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              <i className="fab fa-whatsapp mr-2"></i> Bulk Order Inquiry
-            </a>
+            <WhatsAppOrderTracker product="Bulk Order">
+              <a 
+                href="https://wa.me/916201640686?text=Hi%20I%20want%20to%20place%20a%20bulk%20order" 
+                className="bg-fresh-green hover:bg-green-800 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:-translate-y-1" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <i className="fab fa-whatsapp mr-2"></i> Bulk Order Inquiry
+              </a>
+            </WhatsAppOrderTracker>
           </div>
         </div>
       </section>

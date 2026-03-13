@@ -49,6 +49,7 @@ const Navbar = () => {
     { name: 'Home', path: '/' },
     { name: 'Vegetables', path: '/vegetables' },
     { name: 'Fruits', path: '/fruits' },
+    { name: 'Beverages', path: '/beverages' },
     { name: "Today's Prices", path: '/today-prices' },
     { name: 'Contact', path: '/contact' }
   ];
@@ -89,24 +90,7 @@ const Navbar = () => {
                 )}
               </Link>
             ))}
-            {/* Admin Link - More Prominent */}
-            {isLoggedIn ? (
-              <button
-                onClick={handleLogout}
-                className="relative font-medium text-white bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 px-4 py-2 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg flex items-center"
-              >
-                <i className="fas fa-sign-out-alt mr-2"></i>
-                Logout
-              </button>
-            ) : (
-              <Link
-                to="/admin/login"
-                className="relative font-medium text-white bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 px-4 py-2 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg flex items-center"
-              >
-                <i className="fas fa-user-shield mr-2"></i>
-                Admin Panel
-              </Link>
-            )}
+            {/* Admin links removed for security - access only via direct URL */}
           </div>
 
           {/* Mobile Menu Button */}
@@ -149,15 +133,7 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
-            {/* Admin Link for Mobile */}
-            <Link
-              to="/admin/login"
-              onClick={closeMenu}
-              className="block px-4 py-3 font-medium text-purple-600 hover:text-purple-700 hover:bg-purple-50 transition-all duration-200 flex items-center border-l-4 border-purple-600"
-            >
-              <i className="fas fa-user-shield mr-2"></i>
-              Admin Panel
-            </Link>
+            {/* Admin link removed for security - access only via direct URL */}
           </div>
         </div>
       </div>

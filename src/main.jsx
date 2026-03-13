@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import './index.css';
 
+console.log('main.jsx is executing...');
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-// Test if React is mounting
-console.log('React is about to mount...');
+console.log('About to render React app...');
 
 root.render(
   <React.StrictMode>
@@ -14,4 +15,4 @@ root.render(
   </React.StrictMode>
 );
 
-console.log('React mounted successfully!');
+console.log('React app rendered!');

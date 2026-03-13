@@ -1,167 +1,126 @@
 import React, { useState, useEffect } from "react";
 import AdminFloatingButton from '../components/AdminFloatingButton';
-import appleImage from '../assets/fruits/apple.webp';
-import bananaImage from '../assets/fruits/banana.webp';
-import orangeImage from '../assets/fruits/orange.webp';
-import grapesImage from '../assets/fruits/grapes.webp';
-import mangoImage from '../assets/fruits/mango.webp';
-import pineappleImage from '../assets/fruits/pineapple.webp';
-import pomegranateImage from '../assets/fruits/pomegranate.webp';
-import guavaImage from '../assets/fruits/guava.webp';
-import papayaImage from '../assets/fruits/papaya.webp';
-import jamunImage from '../assets/fruits/jamun.webp';
-import sweetlimeImage from '../assets/fruits/sweetlime.webp';
-import watermelonImage from '../assets/fruits/watermelon.webp';
+import { getProducts, onProductsUpdate } from '../services/productService';
 
 const Fruits = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
 
-  const whatsappNumber = "919876543210";
+  // Fetch products from Firebase
+  useEffect(() => {
+    const fetchInitialProducts = async () => {
+      try {
+        const productsData = await getProducts();
+        setProducts(productsData);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching products:', error);
+        setLoading(false);
+      }
+    };
 
-  const fruits = [
-    {
-      id: 1,
-      name: "Apple",
-      price: "₹120/kg",
-      image: appleImage
-    },
-    {
-      id: 2,
-      name: "Banana",
-      price: "₹40/dozen",
-      image: bananaImage
-    },
-    {
-      id: 3,
-      name: "Orange",
-      price: "₹60/kg",
-      image: orangeImage
-    },
-    {
-      id: 4,
-      name: "Grapes",
-      price: "₹100/kg",
-      image: grapesImage
-    },
-    {
-      id: 5,
-      name: "Mango",
-      price: "₹80/kg",
-      image: mangoImage
-    },
-    {
-      id: 6,
-      name: "Pineapple",
-      price: "₹45/pc",
-      image: pineappleImage
-    },
-    {
-      id: 7,
-      name: "Pomegranate",
-      price: "₹150/kg",
-      image: pomegranateImage
-    },
-    {
-      id: 8,
-      name: "Guava",
-      price: "₹50/kg",
-      image: guavaImage
-    },
-    {
-      id: 9,
-      name: "Papaya",
-      price: "₹35/pc",
-      image: papayaImage
-    },
-    {
-      id: 10,
-      name: "Jamun",
-      price: "₹80/kg",
-      image: jamunImage
-    },
-    {
-      id: 11,
-      name: "Sweet Lime",
-      price: "₹40/kg",
-      image: sweetlimeImage
-    },
-    {
-      id: 12,
-      name: "Watermelon",
-      price: "₹25/pc",
-      image: watermelonImage
-    }
-  ];
+    fetchInitialProducts();
+
+    // Set up real-time listener for price updates
+    const unsubscribe = onProductsUpdate((updatedProducts) => {
+      setProducts(updatedProducts);
+    });
+
+    return () => {
+      if (unsubscribe) {
+        unsubscribe();
+      }
+    };
+  }, []);
+
+  // Filter products by category
+  const fruits = products.filter(product => product.category === 'fruit');
+  
+  // WhatsApp number
+  const whatsappNumber = "916201640686";
+
+  // Product card component
+  const ProductCard = ({ product }) => {
+    // Format price from Firebase
+    const formattedPrice = `₹${product.price}/${product.unit || 'kg'}`;
+    const whatsappLink = `https://wa.me/${whatsappNumber}?text=I%20want%20to%20order%20${encodeURIComponent(product.name)}%20-%20${encodeURIComponent(formattedPrice)}`;
+
+    return (
+      <div className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden">
+        <div className="relative overflow-hidden">
+          <img 
+            src={product.image} 
+            alt={product.name}
+            className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+          />
+        </div>
+        <div className="p-6">
+          <h3 className="text-xl font-bold text-gray-800 mb-2">{product.name}</h3>
+          <p className="text-2xl font-black text-purple-600 mb-4">{formattedPrice}</p>
+          <a 
+            href={whatsappLink}
+            className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 flex items-center justify-center group hover:shadow-lg"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i className="fab fa-whatsapp mr-2 group-hover:animate-bounce"></i>
+            Order on WhatsApp
+          </a>
+        </div>
+      </div>
+    );
+  };
 
   return (
-    <div className="fruits-page" style={{ minHeight: '100vh', backgroundColor: '#f9fafb' }}>
+    <div className="fruits-page min-h-screen bg-gray-50">
       {/* Header */}
-      <section style={{ 
-        backgroundColor: '#10b981', 
-        color: 'white', 
-        padding: '96px 20px',
-        textAlign: 'center'
-      }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>
+      <section className="bg-gradient-to-r from-orange-600 to-orange-700 text-white py-16 text-center">
+        <div className="max-w-7xl mx-auto px-5">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Fresh Fruits
           </h1>
 
-          <p style={{ fontSize: '20px' }}>Seasonal and fresh fruits delivered daily</p>
+          <p className="text-xl">Seasonal and fresh fruits delivered daily</p>
         </div>
       </section>
 
       {/* Fruits Grid */}
-      <section style={{ backgroundColor: 'white', padding: '64px 20px' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <h2 style={{ fontSize: '32px', fontWeight: 'bold', textAlign: 'center', marginBottom: '48px', color: '#1f2937' }}>All Fruits</h2>
+      <section className="bg-white py-16">
+        <div className="max-w-7xl mx-auto px-5">
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">All Fruits</h2>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '32px' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
 
             {fruits.map((fruit, index) => {
               const message = `I want to order ${fruit.name} - ${fruit.price}`;
               const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
               return (
-                <div key={fruit.id} style={{
-                  backgroundColor: '#f3f4f6', 
-                  borderRadius: '12px', 
-                  overflow: 'hidden',
-                  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-                  transition: 'transform 0.3s ease'
-                }}>
-                  <div style={{ height: '200px', backgroundColor: '#e5e7eb', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div key={fruit.id} className="bg-gray-100 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                  <div className="h-48 bg-gray-200 flex items-center justify-center">
                     <img 
                       src={fruit.image} 
                       alt={fruit.name}
-                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      className="w-full h-full object-cover"
                     />
                   </div>
-                  <div style={{ padding: '24px', textAlign: 'center' }}>
-                    <h3 style={{ fontSize: '20px', fontWeight: '600', color: '#1f2937', marginBottom: '12px' }}>
+                  <div className="p-6 text-center">
+                    <h3 className="text-xl font-semibold text-gray-800 mb-3">
                       {fruit.name}
                     </h3>
-                    <p style={{ fontSize: '18px', fontWeight: 'bold', color: '#059669', marginBottom: '16px' }}>
+                    <p className="text-lg font-bold text-green-600 mb-4">
                       {fruit.price}
                     </p>
                     <a
                       href={whatsappLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      style={{
-                        backgroundColor: '#10b981',
-                        color: 'white',
-                        padding: '12px 24px',
-                        borderRadius: '8px',
-                        fontWeight: '600',
-                        textDecoration: 'none',
-                        display: 'inline-block',
-                        transition: 'backgroundColor 0.3s ease'
-                      }}
+                      className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold text-center inline-block transition-all duration-300"
                     >
                       Order on WhatsApp
                     </a>
