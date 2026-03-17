@@ -44,9 +44,9 @@ const Footer = () => {
             <div className="flex items-start space-x-2">
               <FaMapMarkerAlt className="text-white text-lg mt-1 flex-shrink-0" />
               <div>
-                <p className="text-white font-medium">6W7H+WC, Sankha, Jharkhand 815313</p>
+                <p className="text-white font-medium">NH 39 Kundi, Sankha, Rehla, Jharkhand 822124</p>
                 <a 
-                  href="https://www.google.com/maps/search/?api=1&query=6W7H%2BWC%2C%20Sankha%2C%20Jharkhand%20815313"
+                  href="https://share.google/T9a6FX1INHslHMdC1"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-light-green hover:text-green-400 transition-colors text-sm"

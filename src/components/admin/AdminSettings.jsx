@@ -19,7 +19,7 @@ const AdminSettings = () => {
               </div>
               <div className="md:col-span-2">
                 <label className="block text-sm font-medium text-gray-700 mb-2">Address</label>
-                <input type="text" defaultValue="Garhwa - Rajhara Rd, Jharkhand 822124" className="w-full px-3 py-2 border border-gray-300 rounded-lg" />
+                <input type="text" defaultValue="NH 39 Kundi, Sankha, Rehla, Jharkhand 822124" className="w-full px-3 py-2 border border-gray-300 rounded-lg" />
               </div>
             </div>
           </div>

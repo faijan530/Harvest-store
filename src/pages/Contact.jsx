@@ -135,7 +135,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-800 mb-2">Location</h3>
-                    <p className="text-gray-600">Kundi Rehla, Palamu<br />Jharkhand 822124</p>
+                    <p className="text-gray-600">NH 39 Kundi, Sankha, Rehla<br />Jharkhand 822124</p>
                   </div>
                 </div>
 
@@ -196,7 +196,7 @@ const Contact = () => {
                 <h3 className="font-semibold text-gray-800 mb-4">Find Us</h3>
                 <div className="rounded-lg overflow-hidden shadow-lg">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.8974!2d83.9305209!3d24.2140513!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398c12aa80613f05:0x6b2ca4f274492e41!2sGarhwa%20-%20Rajhara%20Rd%2C%20Jharkhand%20822124!5e0!3m2!1sen!2sin!4v1234567890"
+                    src="https://www.google.com/maps?q=24*7+Fresh+Store,Kundi+Rehla+Jharkhand&output=embed"
                     width="100%"
                     height="250"
                     style={{ border: '0' }}
@@ -206,7 +206,7 @@ const Contact = () => {
                     className="rounded-lg"
                   />
                 </div>
-                <a href="https://maps.google.com/?q=Garhwa+-+Rajhara+Rd,+Jharkhand+822124"
+                <a href="https://share.google/T9a6FX1INHslHMdC1"
                    target="_blank"
                    rel="noopener noreferrer"
                    className="inline-block mt-3 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition">

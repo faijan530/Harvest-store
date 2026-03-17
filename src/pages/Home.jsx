@@ -113,7 +113,7 @@ const Home = () => {
     {
       id: 2,
       question: 'Where is your shop located?',
-      answer: 'We are located at Garhwa - Rajhara Rd, Jharkhand 822124. Easy to find and accessible!'
+      answer: 'We are located at NH 39 Kundi, Sankha, Rehla, Jharkhand 822124. Easy to find and accessible!'
     },
     {
       id: 3,
@@ -350,7 +350,7 @@ const Home = () => {
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
               <i className="fas fa-map-marker-alt text-4xl mb-4 text-yellow-300"></i>
               <h3 className="text-2xl font-bold mb-2">Location</h3>
-              <p className="text-lg">Kundi Rehla, Palamu<br />Jharkhand 822124</p>
+              <p className="text-lg">NH 39 Kundi, Sankha, Rehla<br />Jharkhand 822124</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
               <i className="fas fa-phone text-4xl mb-4 text-yellow-300"></i>
@@ -375,7 +375,7 @@ const Home = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div className="card-enhanced rounded-xl overflow-hidden shadow-lg">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.8974!2d83.9305209!3d24.2140513!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398c12aa80613f05:0x6b2ca4f274492e41!2s6W7H%2BWC%2C%20Sankha%2C%20Jharkhand%20815313!5e0!3m2!1sen!2sin!4v1234567890"
+                src="https://www.google.com/maps?q=24*7+Fresh+Store,Kundi+Rehla+Jharkhand&output=embed"
                 width="100%" 
                 height="300" 
                 style={{ border: '0' }} 
@@ -390,7 +390,7 @@ const Home = () => {
               <div className="space-y-3">
                 <p className="flex items-center text-lg">
                   <i className="fas fa-map-marker-alt mr-3 text-fresh-green"></i> 
-                  6W7H+WC, Sankha, Jharkhand 815313
+                  NH 39 Kundi, Sankha, Rehla, Jharkhand 822124
                 </p>
                 <p className="flex items-center text-lg">
                   <i className="fas fa-phone mr-3 text-fresh-green"></i> 
@@ -401,7 +401,7 @@ const Home = () => {
                   Open 24/7
                 </p>
               </div>
-              <a href="https://maps.google.com/?q=6W7H%2BWC%2C%20Sankha%2C%20Jharkhand%20815313" 
+              <a href="https://share.google/T9a6FX1INHslHMdC1" 
                  className="btn-enhanced bg-fresh-green hover:bg-green-800 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg" target="_blank" rel="noopener noreferrer">
                 <i className="fas fa-map-marked-alt mr-2"></i> View Location
               </a>
